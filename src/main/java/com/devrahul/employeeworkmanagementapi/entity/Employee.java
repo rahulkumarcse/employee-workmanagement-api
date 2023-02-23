@@ -1,6 +1,7 @@
 package com.devrahul.employeeworkmanagementapi.entity;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Employee")
@@ -8,9 +9,10 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "EMP_ID")
-    private  String empId;
+    private  Long empId;
 
-    @Column(name = "EMP_EMAIL_ID")
+
+    @Column(name = "EMP_EMAIL_ID",unique = true)
     private String email;
 
     @Column(name = "EMP_NAME")
@@ -25,7 +27,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(String empId, String email, String name, String password, String isAdmin) {
+    public Employee(Long empId, String email, String name, String password, String isAdmin) {
         this.empId = empId;
         this.email = email;
         this.name = name;
@@ -33,11 +35,11 @@ public class Employee {
         this.isAdmin = isAdmin;
     }
 
-    public String getEmpId() {
+    public Long getEmpId() {
         return empId;
     }
 
-    public void setEmpId(String empId) {
+    public void setEmpId(Long empId) {
         this.empId = empId;
     }
 

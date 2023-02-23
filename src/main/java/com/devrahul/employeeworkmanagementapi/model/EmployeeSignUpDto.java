@@ -5,9 +5,17 @@ public class EmployeeSignUpDto {
     private String employeeName;
     private String emailId;
     private String password;
+
     private String cPassword;
 
     public EmployeeSignUpDto() {
+    }
+
+    public EmployeeSignUpDto(String employeeName, String emailId, String password, String cPassword) {
+        this.employeeName = employeeName;
+        this.emailId = emailId;
+        this.password = password;
+        this.cPassword = cPassword;
     }
 
     public String getEmployeeName() {
